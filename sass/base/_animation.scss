@@ -1,0 +1,60 @@
+/* CSS Animation */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        /* Opposite direction from X-axis */
+        /* Left-to-Right */
+        transform: translateX(-10rem);
+    }
+
+    /* Right-to-Left */
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        /* default */
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        /* Opposite direction from X-axis */
+        /* Left-to-Right */
+        transform: translateX(10rem);
+    }
+
+    /* Right-to-Left */
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        /* default */
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottomUp {
+    0% {
+        opacity: 0;
+        /* Opposite direction from X-axis */
+        /* Left-to-Right */
+        transform: translateY(3rem);
+    }
+
+    /* Right-to-Left */
+    80% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        /* default */
+        transform: translate(0);
+    }
+}

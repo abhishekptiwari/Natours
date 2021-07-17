@@ -1,0 +1,55 @@
+/* For cross header */
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)),
+        url('../img/hero-small.jpg');
+    /* cover: Auto fits img in viewport size */
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    -webkit-clip-path: polygon(0 0 , 100% 0 ,100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // Dots Per Inch (DPS)
+    // When the resolution is larger than 192dpi and width is larger than 600px, 600/16=37.5em
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (min-width: 125em) { // 2000/16 = 125em
+        background-image: linear-gradient(to right bottom,
+        rgba($color-secondary-light, 0.8),
+        rgba($color-secondary-dark, 0.8)),
+        url('../img/hero.jpg');
+    }
+
+    @include respond(phone){
+        -webkit-clip-path: polygon(0 0 , 100% 0 ,100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    /* For  Top-left logo */
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        /* width will be automatically set by browser */
+        height: 3.5rem;
+    }
+    
+    /* Title container */
+    &__text-box {
+        position: absolute;
+        /* For the parent element (i.e. text-box) */
+        top: 40%;
+        left: 50%;
+        /* background-color: red; */
+        /* It will be shifted half of the width to the left side and same for the height */
+        /* For the element itself */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+

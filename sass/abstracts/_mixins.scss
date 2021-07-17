@@ -1,0 +1,69 @@
+@mixin clearfix {
+    &::after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centerH_And_V {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+// Media query manager
+/*
+0 - 600px: Phone
+600px - 900px: Tablet portrait
+900px - 1200px: Tablet Landscape
+1200px - 1800px: Is where our normal style applies.(Sizes without media queries)
+1800px + : Big desktop
+*/
+@mixin respond-phone {
+    
+}
+
+
+/*
+$breakpoint argument choices
+-phone
+-tab-port
+-tab-lan
+-big-desktop
+
+ORDER: BASE > TYPOGRAPHY > GENERAL LAYOUT > GRID > PAGGE LAYOUT > COMPONENTS
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone{
+        // ALl the width which is less than 600px or 37.5em
+        // 600 / 16 = 37.5em
+        @media only screen and (max-width: 37.5em){
+            @content
+        };
+    }
+    @if $breakpoint == Tab-port{
+        // ALl the width which is less than equal to 900px or 56.25em
+        // 900 / 16 = 56.25em
+        @media only screen and (max-width: 56.25em){
+            @content
+        };
+    }
+    @if $breakpoint == Tab-lan{
+        // ALl the width which is less than or equal to 1200px or 75em
+        // 1200 / 16 = 75em
+        @media only screen and (max-width: 75em){
+            @content
+        };
+    }
+    @if $breakpoint == Big-desktop{
+        // ALl the width which is less than or equal to 1800px or 112.5em
+        // 1800 / 16 = 112.5em
+        @media only screen and (min-width: 112.5em){
+            @content
+        };
+    }
+}

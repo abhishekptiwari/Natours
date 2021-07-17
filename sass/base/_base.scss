@@ -1,0 +1,51 @@
+
+/* Universal selector */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* The borders and the paddings are no longer added to the total width or total height that we specify for the box */
+    box-sizing: inherit;
+}
+
+/* Root font-size */
+// BY convention em's are better tham rem for media queries
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%;  // 10px/16px = 62.5%
+    
+
+    // Width < 1200
+    @include respond(Tab-lan){
+        // 1rem = 9px, 9/16 = 50%
+        font-size: 56.25%;
+    }
+    
+    // Width < 900
+    @include respond(Tab-port){
+       // 1rem = 8px, 8/16 = 50%
+       font-size: 50%;
+    }
+  
+    @include respond(Big-desktop){
+        // 1rem = 12px, 12/16 = 75%
+        font-size: 70%;
+    }
+}
+
+body {
+    box-sizing: border-box;  
+    padding: 3rem;
+    @include respond(Tab-port){
+        padding: 0;
+     }
+}
+
+::selection{
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+// Start the project using command
+// npm run start
